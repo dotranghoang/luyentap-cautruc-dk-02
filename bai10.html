@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>
+        Nhập Số KW:<br/>
+        <input type="text" id="sodien" value=""><br/>
+        <button type="button" onclick="tinh()">Tính Tiền Điện</button>
+        </h3><br/>
+        <h2><p id="ketqua"></p></h2>
+    
+    <script>
+        /* Tiền thuê bao điện kế: 1000đ/tháng
+
+     Tổng mức 1 KW<= 50 KW trả với giá 230đ/KW
+     Tổng mức 2 KW<= 100 KW thì tính giá 480đ/KW từ KW thứ 51
+     Tổng mức 3 KW <= 150 KW thì tính giá 700đ/KW từ KW 101
+     Tổng mức 4 KW > 150 KW thì tính giá 900đ/KW từ KW 151
+         */
+        function tinh() {
+        let a=document.getElementById("sodien").value;
+        let kw=parseInt(a);
+        let muc1=kw*230+1000;
+        let muc2=(kw-50)*480+(50*230)+1000;
+        let muc3=(kw-100)*700 + (50*230) + (50*480) + 1000;
+        let muc4=(kw-150)*900 + (50*230) + (50*480) + (50*700) + 1000;
+        if(kw<50 && kw > 0) {
+            document.getElementById("ketqua").innerHTML=(muc1+" VND");
+
+        }else if(kw>50 && kw <= 100) {
+            document.getElementById("ketqua").innerHTML=(muc2+" VND");
+        }else if(kw > 100 && kw <=150) {
+            document.getElementById("ketqua").innerHTML=(muc3+" VND");
+        }else if(kw > 150) {
+            document.getElementById("ketqua").innerHTML=(muc4+" VND");
+        }else {
+            document.getElementById("ketqua").innerHTML=(kw+" Ban nhap sai");
+        }
+        }
+        </script>
+
+    
+    
+</body>
+</html>

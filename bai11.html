@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Nhập Lương <br />
+        <input type="text" id="VAT" value=""><br />
+        <button type="button" onclick="tinh()">Tính VAT</button></h3><br />
+    <h2>
+        <p id="ketqua"></p>
+    </h2>
+    <script>
+        /*Bậc 1: 4 triệu đồng/tháng 0%;
+Bậc 2: Trên 4 - 6 triệu đồng/tháng: 5%;
+Bậc 3: Trên 6 - 9 triệu đồng: 10%;
+Bậc 4: Trên 9 - 14 triệu đồng/tháng: 15%;
+Bậc 5: trên 14 - 24 triệu đồng/tháng: 20%;
+Bậc 6: Trên 24 - 44 triệu đồng/tháng: 25%;
+Bậc 7: Trên 44 - 84 triệu đồng/tháng: 30%;
+Bậc 8: Trên 84 triệu đồng: 35%.
+        */
+        function tinh() {
+            let a = document.getElementById("VAT").value;
+            let vat = parseInt(a);
+            let bac2 = (vat / 100) * 5;
+            let bac3 = (vat / 100) * 10;
+            let bac4 = (vat / 100) * 15;
+            let bac5 = (vat / 100) * 20;
+            let bac6 = (vat / 100) * 25;
+            let bac7 = (vat / 100) * 30;
+            let bac8 = (vat / 100) * 35;
+            if (vat <= 4000000 && vat > 0) {
+                document.getElementById("ketqua").innerHTML = ("Bạn Không Phải Đóng VAT");
+            } else if (vat > 4000000 && vat <= 6000000) {
+                document.getElementById("ketqua").innerHTML = ("Bạn Phải Đóng VAT = 5% = " + bac2 +" VND");
+            } else if (vat > 6000000 && vat <= 9000000) {
+                document.getElementById("ketqua").innerHTML = ("Bạn Phải Đóng VAT = 10% = " + bac3 +" VND");
+            } else if (vat > 9000000 && vat <= 14000000) {
+                document.getElementById("ketqua").innerHTML = ("Bạn Phải Đóng VAT = 15% = " + bac4 +" VND" );
+            } else if (vat > 14000000 && vat <= 24000000) {
+                document.getElementById("ketqua").innerHTML = ("Bạn Phải Đóng VAT = 20% = " + bac5 +" VND");
+            } else if (vat > 24000000 && vat <= 44000000) {
+                document.getElementById("ketqua").innerHTML = ("Bạn Phải Đóng VAT = 25% = " + bac6 +" VND");
+            } else if (vat > 44000000 && vat <= 84000000) {
+                document.getElementById("ketqua").innerHTML = ("Bạn Phải Đóng VAT = 30% = " + bac7 +" VND");
+            } else if (vat > 84000000) {
+                document.getElementById("ketqua").innerHTML = ("Bạn Phải Đóng VAT = 35% = " + bac8 +" VND");
+            }else {
+                alert("Bạn Nhập Sai")
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

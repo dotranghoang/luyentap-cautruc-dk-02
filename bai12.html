@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+    <h3>Số Tiền Vay<br/>
+    <input type="text" id="vay" value=""><br/>
+     Kỳ Hạn Vay <br/>
+     <input type="text" id="thang" value=""><br/>
+     Lãi Suất (%/Tháng)<br/>
+     <input type="text" id="lai" value=""><br/>
+     <button type="button" onclick="tinh()">Tính </button>
+</h3><br/>
+<h2><p id="ketqua"></p></h2>
+</form>
+<script>
+    function tinh() {
+    let a=document.getElementById("vay").value;
+    let b=document.getElementById("thang").value;
+    let c=document.getElementById("lai").value;
+    let vay=parseFloat(a);
+    let thang=parseInt(b);
+    let lai=parseFloat(c);
+    let pay=parseInt(a*Math.pow(lai/100 + 1,thang));
+    document.getElementById("ketqua").innerHTML=(pay);
+      
+    }
+</script>
+    
+</body>
+</html>

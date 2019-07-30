@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Phuong trinh bac 2 ax2+bx+c=0 (a!=0)
+        let a=parseFloat(prompt("Nhap so a"));
+        let b=parseFloat(prompt("Nhap so b"));
+        let c=parseFloat(prompt("Nhap so c"));
+        let delta=(Math.pow(b,2)-(4*a*c));
+        let x1;
+        let x2;
+        if (a+b+c==0) {
+            x1=1;
+            x2=c/a;
+            alert("x1="+x1+" x2="+x2)
+        }else if(a-b+c==0) {
+            x1=-1;
+            x2=-c/a;
+            alert("x1="+x1+" x2="+x2);
+        }else if(delta==0) {
+            x1=x2=-(b/2*a);
+            alerl("Phuong Trinh co nghiem kep x1=x2="+x1);
+        }else if(delta>0) {
+            x1=(-b+Math.sqrt(delta))/(2*a);
+            x2=(-b-Math.sqrt(delta))/(2*a);
+            alert("x1="+x1+" x2="+x2);
+        }else  {
+            alert("Phuong trinh vo nghiem")
+
+        }
+        
+
+        </script>
+    
+</body>
+</html>
